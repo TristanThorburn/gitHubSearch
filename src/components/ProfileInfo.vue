@@ -1,18 +1,29 @@
 <template>
     <div v-if="profile">
-        <h2>Heres the profile</h2>
-        <!-- <p>{{ this.profile }}</p> -->
-        <p><a :href="profilePath">GitHub link</a></p>
+        <h2>PROFILE INFO COMPONENT</h2>
+
+        <p><a :href="profilePath"><font-awesome-icon icon="fa-brands fa-github" />&nbsp;GitHub Page</a></p>
+
         <img :src="imagePath" alt="The avatar image of the searched user's profile">
-        <p>Member since {{ moment(this.profile.created_at).format("MMM Do YY") }}</p>
-        <p><a :href="reposPath">Public Repos: {{ this.profile.public_repos }}</a></p>
+
+        <p>Joined {{ moment(this.profile.created_at).format("MMM Do YY") }}</p>
+
+        <p><a :href="reposPath"><font-awesome-icon icon="fa-solid fa-code" /></a> Total Repos: {{ this.profile.public_repos }}</p>
+
         <p>Followers: {{ this.profile.followers }}</p>
+
         <p>Following: {{ this.profile.following }}</p>
-        <p>Hirable? {{ this.profile.hireable }}</p>
-        <p>About: {{ this.profile.bio }}</p>
-        <p>Located: {{ this.profile.location }}</p>
+
+        <p v-if="this.profile.hireable === true">User is available for work</p>
+
+        <p v-if="this.profile.bio === null"><font-awesome-icon icon="fa-solid fa-address-card" />This user has no bio</p>
+
+        <p v-if="!this.profile.bio === null"><font-awesome-icon icon="fa-solid fa-address-card" /> {{ this.profile.bio }}</p>
+
+        <p><font-awesome-icon icon="fa-solid fa-map-pin" />&nbsp;{{ this.profile.location }}</p>
         <p>User Name: {{ this.profile.name }}</p>
-        <p>User Website: <a :href="`https://` + websitePath"> {{ this.profile.blog }} </a></p>
+        
+        <p><a :href="`https://` + websitePath"><font-awesome-icon icon="fa-solid fa-laptop" /> {{ this.profile.blog }} </a></p>
     </div>
 </template>
 
@@ -20,7 +31,7 @@
 import moment from 'moment';
 
     export default {
-        props:['profile'],
+        props:[ 'profile' ],
         computed: {
             imagePath() {
                 return `${this.profile?.avatar_url}`

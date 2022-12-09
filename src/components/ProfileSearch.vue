@@ -1,20 +1,26 @@
 <template>
     <main>
-        <h1>Test</h1>
+        <h2>PROFILE SEARCH COMPONENT</h2>
     
         <form @keydown.enter.prevent="fetchData">
             <label for="userQuery">Who are you looking for?</label>
-            <p>Searching for {{ user }}</p>
-            <input type="text" name="userQuery" v-model="user"/>
+            <input 
+              type="text" 
+              name="userQuery" 
+              v-model="user"
+              placeholder="&#127859;"
+              />
+            <button @click.prevent="fetchData" type="submit"><font-awesome-icon icon="fa-solid fa-magnifying-glass" />Search</button>
         </form>
-  
-        <ProfileInfo :profile="this.info"/>
+
+        <div v-if="this.error"> {{ this.error }}</div>
+
+        <ProfileInfo :profile="this.info" v-else/>
     </main>
 </template>
 
 <script>
   import axios from 'axios';
-  import { ref } from 'vue';
   import ProfileInfo from '../components/ProfileInfo.vue';
 
   export default {
@@ -22,21 +28,19 @@
     data(){
       return{
         info:null,
-        user:ref(null)
+        user:null,
+        error:null,
       }
     },
     methods: {
       fetchData () {
         axios
         .get(`https://api.github.com/users/${this.user}`)
-        .then(response => (this.info = response.data))
-        
+        .then(response => ( this.info = response.data ), this.error=null)
+        .catch(error => ( this.error = error.message ) )
       }
     },
-    components:{
-      ProfileInfo
-    }
-
+    components:{ ProfileInfo }
   }
 
 </script>

@@ -1,0 +1,21 @@
+@use './setup.scss';
+@use './profileinfo.scss';
+
+body {
+    font-family: -apple-system, 
+                 BlinkMacSystemFont, 
+                 "Segoe UI", 
+                 Roboto, 
+                 Helvetica,
+                 Arial,
+                 sans-serif,
+                 "Apple Color Emoji",  /* Emojis*/
+                 "Segoe UI Emoji", /* Emojis*/
+                 "Segoe UI Symbol"; /* Emojis*/
+    background:white;
+    color:black;
+  }
+
+// button green: #238636, border radius 6px
+// link blue: #58a6ff
+// tab highlight orange:#f78166
