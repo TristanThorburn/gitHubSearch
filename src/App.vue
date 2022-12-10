@@ -1,17 +1,22 @@
-<script setup>
-import { RouterLink, RouterView } from 'vue-router'
-
-</script>
-
 <template>
+
   <header>
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-        <button>Dark Mode</button>
-      </nav>
+      
+    <NavBar />
+
   </header>
 
   <RouterView />
+
 </template>
 
+<script>
+
+  import { RouterView } from 'vue-router';
+  import NavBar from './components/NavBar.vue';
+
+  export default{
+    components:{ NavBar }
+  }
+
+</script>
