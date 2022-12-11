@@ -1,16 +1,15 @@
 <template>
     <main>
-        <h2>PROFILE SEARCH COMPONENT</h2>
-    
         <form @keydown.enter.prevent="fetchData">
-            <label for="userQuery">Who are you looking for?</label>
+            <label for="userQuery">Who's profile is the target?</label>
             <input 
               type="text" 
               name="userQuery" 
               v-model="user"
-              placeholder="&#127859;"
               />
-            <button @click.prevent="fetchData" type="submit"><font-awesome-icon icon="fa-solid fa-magnifying-glass" />Search</button>
+            <button @click.prevent="fetchData" type="submit">
+              <font-awesome-icon icon="fa-solid fa-magnifying-glass" />
+            </button>
         </form>
 
         <div v-if="this.error"> {{ this.error }}</div>
@@ -24,7 +23,7 @@
   import ProfileInfo from '../components/ProfileInfo.vue';
 
   export default {
-    name:'HomeView',
+    name:'ProfileSearch',
     data(){
       return{
         info:null,
@@ -37,7 +36,7 @@
         axios
         .get(`https://api.github.com/users/${this.user}`)
         .then(response => ( this.info = response.data ), this.error=null)
-        .catch(error => ( this.error = error.message ) )
+        .catch(error => ( this.error = `Are you sure thats the correct name? There's no results...` ) )
       }
     },
     components:{ ProfileInfo }

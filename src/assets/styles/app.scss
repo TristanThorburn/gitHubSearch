@@ -1,0 +1,27 @@
+#app{
+    display:flex;
+  }
+
+:root {
+    font-family: -apple-system, 
+                 BlinkMacSystemFont, 
+                 "Segoe UI", 
+                 Roboto, 
+                 Helvetica,
+                 Arial,
+                 sans-serif,
+                 "Apple Color Emoji",  /* Emojis*/
+                 "Segoe UI Emoji", /* Emojis*/
+                 "Segoe UI Symbol"; /* Emojis*/
+    background:white;
+    color:black;
+}
+
+:root.dark{
+  background:black;
+  color:white;
+}
+
+// button green: #238636, border radius 6px
+// link blue: #58a6ff
+// tab highlight orange:#f78166

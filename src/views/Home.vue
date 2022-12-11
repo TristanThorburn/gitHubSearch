@@ -2,7 +2,7 @@
 
   <main>
 
-    <h1>Git Hub User Search</h1>
+    <h1>Creep That GitHub User!</h1>
 
     <ProfileSearch />
     
@@ -14,6 +14,7 @@
 import ProfileSearch from '../components/ProfileSearch.vue';
 
   export default{
+    name:'Home',
     components:{ ProfileSearch }
   }
 </script>

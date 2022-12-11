@@ -10,6 +10,7 @@
   import ProfileInfo from '../components/ProfileInfo.vue';
 
     export default {
+      name:'About',
       data(){
         return{
           info:null,

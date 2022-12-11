@@ -1,29 +1,76 @@
 <template>
     <div v-if="profile">
-        <h2>PROFILE INFO COMPONENT</h2>
 
-        <p><a :href="profilePath"><font-awesome-icon icon="fa-brands fa-github" />&nbsp;GitHub Page</a></p>
+        <section class="cardLeft">
+            <img :src="imagePath" alt="The avatar image of the searched user's profile" />
 
-        <img :src="imagePath" alt="The avatar image of the searched user's profile">
+            <p>DOB: {{ moment(profile.created_at).format("MMM Do YY") }}</p>
+        </section>
 
-        <p>Joined {{ moment(this.profile.created_at).format("MMM Do YY") }}</p>
+        <section class="cardCenter">
+            <div class="nameContainer">
+                <p v-if="profile.name === null">The user's name is secret</p>
 
-        <p><a :href="reposPath"><font-awesome-icon icon="fa-solid fa-code" /></a> Total Repos: {{ this.profile.public_repos }}</p>
+                <p v-else>{{ profile.name }}</p>
+            </div>
 
-        <p>Followers: {{ this.profile.followers }}</p>
+            <div class="bio">
+                <p v-if="profile.bio === null">There doesnt seem to be a bio</p>
 
-        <p>Following: {{ this.profile.following }}</p>
+                <p v-else>{{ profile.bio }}</p>
+            </div>
 
-        <p v-if="this.profile.hireable === true">User is available for work</p>
+            <div class="statsContainer">
+                <p>
+                    <a :href="reposPath"><font-awesome-icon icon="fa-solid fa-code" /></a>
+                    Total Repos: {{ profile.public_repos }}
+                </p>
 
-        <p v-if="this.profile.bio === null"><font-awesome-icon icon="fa-solid fa-address-card" />This user has no bio</p>
+                <p>Followers: {{ profile.followers }}</p>
 
-        <p v-if="!this.profile.bio === null"><font-awesome-icon icon="fa-solid fa-address-card" /> {{ this.profile.bio }}</p>
+                <p>Following: {{ profile.following }}</p>
+            </div>
 
-        <p><font-awesome-icon icon="fa-solid fa-map-pin" />&nbsp;{{ this.profile.location }}</p>
-        <p>User Name: {{ this.profile.name }}</p>
+            <div class="directions">
+                <div class="location">
+                    <p v-if="profile.location === null">
+                        <font-awesome-icon icon="fa-solid fa-map-pin" />&nbsp;Covert Location
+                    </p>
+
+                    <p v-else>
+                        <font-awesome-icon icon="fa-solid fa-map-pin" />&nbsp;{{ profile.location }}
+                    </p>
+                </div>
+
+                <div class="website">
+                    <p v-if="profile.blog === ''">
+                        <font-awesome-icon icon="fa-solid fa-laptop" />&nbsp;No User Website
+                    </p>
+                    
+                    <p v-else>
+                        <a :href="`https://` + websitePath">
+                            <font-awesome-icon icon="fa-solid fa-laptop" /> {{ profile.blog }}
+                        </a>
+                    </p>
+                </div>
+            </div>
+
+        </section>
         
-        <p><a :href="`https://` + websitePath"><font-awesome-icon icon="fa-solid fa-laptop" /> {{ this.profile.blog }} </a></p>
+        <section class="cardRight">
+            <p>
+                <a :href="profilePath">
+                    <font-awesome-icon icon="fa-brands fa-github" />&nbsp;GitHub Page
+                </a>
+            </p>
+
+            <div class="hirable">
+                <p v-if="profile.hireable === true">User is available for work</p>
+
+                <p v-else>User is not available for work</p>
+            </div>
+        </section>
+        
     </div>
 </template>
 
@@ -31,6 +78,7 @@
 import moment from 'moment';
 
     export default {
+        name:'ProfileInfo',
         props:[ 'profile' ],
         computed: {
             imagePath() {
