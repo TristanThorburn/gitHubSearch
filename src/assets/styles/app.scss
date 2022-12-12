@@ -1,3 +1,8 @@
+
+// button green: #238636, border radius 6px
+// link blue: #58a6ff
+// tab highlight orange:#f78166
+
 #app{
     display:flex;
   }
@@ -15,13 +20,45 @@
                  "Segoe UI Symbol"; /* Emojis*/
     background:white;
     color:black;
+
+    i, .directions a{
+      color:black;
+    }
+    .cardRight .svg-inline--fa{
+      color:black;
+    }
 }
 
 :root.dark{
   background:black;
   color:white;
+
+  i, .directions a{
+    color:white;
+  }
+  .cardRight .svg-inline--fa{
+    color:white;
+  }
 }
 
-// button green: #238636, border radius 6px
-// link blue: #58a6ff
-// tab highlight orange:#f78166
+header{
+  width:10vw;
+}
+
+main{
+  width:90vw;
+}
+
+.routedSection{
+  max-width:80%;
+  margin:0 auto;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  
+  h1{
+    text-align:center;
+    // 20px-60px
+    font-size: clamp(1.25rem, 0.75rem + 2.5vw, 3.75rem);
+  }
+}

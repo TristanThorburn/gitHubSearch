@@ -1,8 +1,10 @@
 <template>
-    <div v-if="profile">
+    <div v-if="profile" class="profileInfoContainer">
 
         <section class="cardLeft">
-            <img :src="imagePath" alt="The avatar image of the searched user's profile" />
+            <div class="profileImg">
+                <img :src="imagePath" alt="The avatar image of the searched user's profile" />
+            </div>
 
             <p>DOB: {{ moment(profile.created_at).format("MMM Do YY") }}</p>
         </section>
@@ -14,7 +16,7 @@
                 <p v-else>{{ profile.name }}</p>
             </div>
 
-            <div class="bio">
+            <div>
                 <p v-if="profile.bio === null">There doesnt seem to be a bio</p>
 
                 <p v-else>{{ profile.bio }}</p>
@@ -23,7 +25,7 @@
             <div class="statsContainer">
                 <p>
                     <a :href="reposPath"><font-awesome-icon icon="fa-solid fa-code" /></a>
-                    Total Repos: {{ profile.public_repos }}
+                    Repos: {{ profile.public_repos }}
                 </p>
 
                 <p>Followers: {{ profile.followers }}</p>
@@ -32,7 +34,7 @@
             </div>
 
             <div class="directions">
-                <div class="location">
+                <div>
                     <p v-if="profile.location === null">
                         <font-awesome-icon icon="fa-solid fa-map-pin" />&nbsp;Covert Location
                     </p>
@@ -42,7 +44,7 @@
                     </p>
                 </div>
 
-                <div class="website">
+                <div>
                     <p v-if="profile.blog === ''">
                         <font-awesome-icon icon="fa-solid fa-laptop" />&nbsp;No User Website
                     </p>
@@ -60,14 +62,15 @@
         <section class="cardRight">
             <p>
                 <a :href="profilePath">
-                    <font-awesome-icon icon="fa-brands fa-github" />&nbsp;GitHub Page
+                    <font-awesome-icon icon="fa-brands fa-github" />
                 </a>
             </p>
 
             <div class="hirable">
-                <p v-if="profile.hireable === true">User is available for work</p>
+                <p>Job Hunting?</p>
+                <i v-if="profile.hireable === true" class="fa-solid fa-thumbs-up"></i>
 
-                <p v-else>User is not available for work</p>
+                <i v-else class="fa-sharp fa-solid fa-thumbs-down"></i>
             </div>
         </section>
         

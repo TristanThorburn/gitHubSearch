@@ -1,12 +1,12 @@
 <template>
 
-  <main>
+  <section class="routedSection">
 
     <h1>Creep That GitHub User!</h1>
 
     <ProfileSearch />
     
-  </main>
+  </section>
 
 </template>
 

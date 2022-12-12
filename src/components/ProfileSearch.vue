@@ -1,21 +1,30 @@
 <template>
-    <main>
+    <section class="searchSection">
         <form @keydown.enter.prevent="fetchData">
-            <label for="userQuery">Who's profile is the target?</label>
-            <input 
+
+          <div>
+              <label for="userQuery">Who's profile is the target?</label>
+              <input 
               type="text" 
               name="userQuery" 
               v-model="user"
               />
-            <button @click.prevent="fetchData" type="submit">
+          </div>
+
+          <button @click.prevent="fetchData" type="submit">
               <font-awesome-icon icon="fa-solid fa-magnifying-glass" />
-            </button>
+          </button>
+
         </form>
 
-        <div v-if="this.error"> {{ this.error }}</div>
+    </section>
 
-        <ProfileInfo :profile="this.info" v-else/>
-    </main>
+    <section class="searchResult">
+      <div v-if="this.error" class="searchError"> {{ this.error }}</div>
+
+      <ProfileInfo :profile="this.info" v-else/>
+    </section>
+
 </template>
 
 <script>

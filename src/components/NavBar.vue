@@ -5,13 +5,18 @@
         <ul>
             <li><RouterLink to="/"><i class="fa-solid fa-house"></i></RouterLink></li>
             <li><RouterLink to="/about"><i class="fa-solid fa-circle-info"></i></RouterLink></li>
+            <li>
+                <button  @click="toggleTheme">
+                    <span v-if="this.theme === 'light-theme'" class="emoji">
+                        <img src="../assets/svg/moon.svg" alt="">
+                    </span>
+                    <span v-if="this.theme === 'dark-theme'" class="emoji">
+                        <img src="../assets/svg/sun.svg" alt="">
+                    </span>
+                </button>
+            </li>
         </ul>
 
-        <button  @click="toggleTheme">
-            <i v-if="this.theme === 'light-theme'" class="fa-solid fa-moon"></i>
-            <i v-if="this.theme === 'dark-theme'" class="fa-solid fa-sun"></i>
-        </button>
-        
     </nav>
 
 </template>

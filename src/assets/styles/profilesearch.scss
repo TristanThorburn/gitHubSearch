@@ -1,0 +1,44 @@
+.searchSection{
+    width:100%;
+    border:5px solid #58a6ff;
+    border-radius:6px;
+}
+
+form{
+    margin:2vh auto;
+    display:flex;
+    gap:2rem;
+    width:80%;
+    // 20px-30px
+    font-size: clamp(1.25rem, 1.125rem + 0.625vw, 1.875rem);
+
+    div{
+        display:flex;
+        flex-direction: column;
+        gap:2rem;
+        width:80%;
+    }
+    input{
+        border-top:none;
+        border-left:none;
+        border-right:none;
+        border-bottom:5px solid #58a6ff;
+    }
+    button{
+        width:20%;
+        background-color: #238636;
+        border-color: #238636;
+        border-radius:6px;
+        cursor: pointer;
+    }
+    .fa-magnifying-glass{
+        // 30px-50px
+        font-size: clamp(1.875rem, 1.625rem + 1.25vw, 3.125rem);
+    }
+}
+
+.searchError{
+    // 20px-30px
+    font-size: clamp(1.25rem, 1.125rem + 0.625vw, 1.875rem);
+    margin-top:10vh;
+}

@@ -1,8 +1,13 @@
 <template>
-  <div class="about">
-    <h1>APP CREATOR</h1>
+
+  <Section class="routedSection">
+
+    <h1>App Creator</h1>
+
     <ProfileInfo :profile="this.info"/>
-  </div>
+    
+  </Section>
+
 </template>
 
 <script>
