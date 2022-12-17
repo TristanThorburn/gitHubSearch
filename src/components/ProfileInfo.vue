@@ -67,10 +67,10 @@
             </p>
 
             <div class="hirable">
-                <p>Job Hunting?</p>
                 <i v-if="profile.hireable === true" class="fa-solid fa-thumbs-up"></i>
-
                 <i v-else class="fa-sharp fa-solid fa-thumbs-down"></i>
+                
+                <p>Job Hunting?</p>
             </div>
         </section>
         
