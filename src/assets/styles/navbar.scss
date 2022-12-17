@@ -27,3 +27,17 @@ nav{
         background-color: white;
     }
 }
+
+@media (max-width:1023px){
+    nav{
+        height:auto;
+
+        ul{
+            flex-direction:row;
+            justify-content:space-evenly;
+        }
+        li{
+            height:auto;
+        }
+    }
+}

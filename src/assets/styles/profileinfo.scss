@@ -65,7 +65,7 @@
     }
     a{
         // 20px - 100px
-        font-size: clamp(1.25rem, 0.25rem + 5vw, 6.25rem);
+        font-size: 4rem;
     }
     .hirable{
         grid-row:3;
@@ -80,5 +80,20 @@
     }
     i{
         font-size: 4rem;
+    }
+}
+
+@media (max-width:1023px){
+    .profileInfoContainer{
+        display:flex;
+        flex-direction:column;
+        gap:0rem;
+    }
+    .cardCenter{
+        text-align:center;
+    }
+    .cardRight{
+        display:flex;
+        justify-content: space-around;
     }
 }
