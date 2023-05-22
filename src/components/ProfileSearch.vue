@@ -3,7 +3,7 @@
         <form @keydown.enter.prevent="fetchData">
 
           <div>
-              <label for="userQuery">Who's profile is the target?</label>
+              <label for="userQuery">Whose profile is the target?</label>
               <input 
               type="text" 
               name="userQuery" 
