@@ -58,7 +58,36 @@ main{
   
   h1{
     text-align:center;
-    // 20px-60px
-    font-size: clamp(1.25rem, 0.75rem + 2.5vw, 3.75rem);
+    // 30px-60px
+    font-size: clamp(1.875rem, 1.5rem + 1.875vw, 3.75rem);
+  }
+}
+
+@media (max-width:1023px){
+  #app{
+    flex-direction:column;
+  }
+
+  header{
+    width:100%;
+    position:fixed;
+  }
+
+  main{
+    margin-top:clamp(5rem, 4.5rem + 2.5vw, 7.5rem);
+    width:100%;
+  }
+
+  :root{
+    header{
+      border:4px solid black;
+      background:white;
+    }
+  }
+  :root.dark{
+    header{
+      border:4px solid white;
+      background:black;
+    }
   }
 }

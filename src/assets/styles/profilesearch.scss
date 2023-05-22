@@ -42,3 +42,18 @@ form{
     font-size: clamp(1.25rem, 1.125rem + 0.625vw, 1.875rem);
     margin-top:10vh;
 }
+
+@media (max-width:767px){
+    form{
+        flex-direction: column;
+        text-align:center;
+        align-items:center;
+
+        div{
+            width:100%;
+        }
+        button{
+            width:60%;
+        }
+    }
+}
